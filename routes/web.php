@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PlaceController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -16,6 +17,8 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+
+Route::get('/places', [PlaceController::class, 'index'])->name('places.index');
 
 Route::middleware(['auth:sanctum', 'verified'])
     ->group(function () {

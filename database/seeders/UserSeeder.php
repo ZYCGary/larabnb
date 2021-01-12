@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         // Init the first user
         $user = User::find(1);
         $user->name = 'Gary';
-        $user->email = 'gary@larabnb.com';
+        $user->email = 'gary@larabnb.test';
         $user->save();
     }
 }
