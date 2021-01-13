@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Place;
+use App\Models\Property;
 use Illuminate\Database\Seeder;
 
-class PlaceSeeder extends Seeder
+class PropertySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class PlaceSeeder extends Seeder
         $publishedAt = [now(), null];
 
         foreach (range(1, 100) as $item) {
-            $place = Place::factory()->make([
+            $place = Property::factory()->make([
                 'user_id' => rand(1, 10)
             ]);
 
@@ -34,6 +34,6 @@ class PlaceSeeder extends Seeder
             ];
         }
 
-        Place::insert($data);
+        Property::insert($data);
     }
 }

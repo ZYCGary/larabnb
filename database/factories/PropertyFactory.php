@@ -2,20 +2,20 @@
 
 namespace Database\Factories;
 
-use App\Models\Place;
+use App\Models\Property;
 use App\Models\RentalType;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PlaceFactory extends Factory
+class PropertyFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Place::class;
+    protected $model = Property::class;
 
     /**
      * Define the model's default state.
@@ -40,9 +40,9 @@ class PlaceFactory extends Factory
     /**
      * Indicate the place is published.
      *
-     * @return PlaceFactory
+     * @return PropertyFactory
      */
-    public function published(): PlaceFactory
+    public function published(): PropertyFactory
     {
         return $this->state(function () {
             return [
@@ -54,9 +54,9 @@ class PlaceFactory extends Factory
     /**
      * Indicate the place is unpublished.
      *
-     * @return PlaceFactory
+     * @return PropertyFactory
      */
-    public function unpublished(): PlaceFactory
+    public function unpublished(): PropertyFactory
     {
         return $this->state(function () {
             return [
