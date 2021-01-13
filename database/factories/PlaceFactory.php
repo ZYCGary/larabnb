@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Place;
+use App\Models\RentalType;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -30,6 +31,8 @@ class PlaceFactory extends Factory
             'title' => $this->faker->sentence(),
             'description' => $this->faker->text,
             'available_on' => now(),
+            'rent' => $this->faker->numberBetween(200, 1000),
+            'rental_type_id' => rand(1, 5)
         ];
     }
 

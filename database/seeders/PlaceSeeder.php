@@ -20,7 +20,7 @@ class PlaceSeeder extends Seeder
 
         foreach (range(1, 100) as $item) {
             $place = Place::factory()->make([
-                'user_id' => rand(1, 10),
+                'user_id' => rand(1, 10)
             ]);
 
             $data[] = [
@@ -28,6 +28,8 @@ class PlaceSeeder extends Seeder
                 'title' => $place->title,
                 'description' => $place->description,
                 'available_on' => $place->available_on,
+                'rent' => $place->rent,
+                'rental_type_id' => rand(1, 5),
                 'published_at' => $publishedAt[array_rand($publishedAt, 1)],
             ];
         }

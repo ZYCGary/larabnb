@@ -20,8 +20,7 @@ class CreatePlacesTable extends Migration
             $table->string('description');
             $table->date('available_on')->default(now()->toDateString());
             $table->decimal('rent', 10, 2)->nullable();
-            $table->string('pay_frequency')->nullable();
-            $table->unsignedInteger('type_id');
+            $table->unsignedInteger('rental_type_id');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

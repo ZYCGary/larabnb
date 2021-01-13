@@ -5485,7 +5485,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "PlaceCard",
-  props: ['place']
+  props: ['place'],
+  computed: {
+    availableData: function availableData() {
+      var now = new Date();
+      var available = new Date(this.place.available_on);
+      return now <= available ? this.place.available_on : 'Available Now';
+    }
+  }
 });
 
 /***/ }),
@@ -32818,7 +32825,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "lg:w-1/4 md:w-1/2 p-4 w-full" }, [
+  return _c("div", { staticClass: "lg:w-1/3 md:w-1/2 p-4 w-full" }, [
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "mt-4" }, [
@@ -32827,16 +32834,22 @@ var render = function() {
         {
           staticClass: "text-gray-500 text-xs tracking-widest title-font mb-1"
         },
-        [_vm._v("CATEGORY")]
+        [_vm._v(_vm._s(_vm.place.rental_type))]
       ),
       _vm._v(" "),
       _c(
         "h2",
         { staticClass: "text-gray-900 title-font text-lg font-medium" },
-        [_vm._v(_vm._s(_vm.place.title))]
+        [_vm._v("$" + _vm._s(_vm.place.rent) + " / week")]
       ),
       _vm._v(" "),
-      _c("p", { staticClass: "mt-1" }, [_vm._v("$16.00")])
+      _c(
+        "p",
+        {
+          staticClass: "text-gray-500 text-xs tracking-widest title-font mb-1"
+        },
+        [_vm._v(_vm._s(_vm.availableData))]
+      )
     ])
   ])
 }
