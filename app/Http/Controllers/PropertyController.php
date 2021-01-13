@@ -13,10 +13,11 @@ class PropertyController extends Controller
     {
         $data = [];
 
-        $properties = Property::all();
+        $properties = Property::published()->get();
 
         foreach ($properties as $property) {
             $data[] = [
+                'id' => $property->id,
                 'title' => $property->title,
                 'user' => $property->user->name,
                 'rental_type' => $property->rentalType->name,

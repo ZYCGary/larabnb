@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Place\Jetstream;
+namespace Tests\Feature\Jetstream;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
