@@ -308,7 +308,9 @@
 
             <!-- Page Content -->
             <main>
-                <slot></slot>
+                <div class="container px-5 py-12 mx-auto">
+                    <slot name="main"></slot>
+                </div>
             </main>
 
             <!-- Modal Portal -->

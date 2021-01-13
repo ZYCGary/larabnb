@@ -6,7 +6,7 @@
             </h2>
         </template>
 
-        <div>
+        <template #main>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                 <div v-if="$page.props.jetstream.canUpdateProfileInformation">
                     <update-profile-information-form :user="$page.props.user" />
@@ -34,7 +34,7 @@
                     <delete-user-form class="mt-10 sm:mt-0" />
                 </template>
             </div>
-        </div>
+        </template>
     </app-layout>
 </template>
 

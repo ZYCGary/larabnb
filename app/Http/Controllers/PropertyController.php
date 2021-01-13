@@ -19,15 +19,38 @@ class PropertyController extends Controller
             $data[] = [
                 'id' => $property->id,
                 'title' => $property->title,
-                'user' => $property->user->name,
                 'rental_type' => $property->rentalType->name,
                 'available_on' => $property->available_on,
-                'rent' => $property->rent
+                'rent' => $property->rent,
+                'user' => [
+                    'name' => $property->user->name,
+                ]
             ];
         }
 
         return Inertia::render('Property/Index', [
             'properties' => $data
+        ]);
+    }
+
+    public function show(int $propertyId): Response
+    {
+        $property = Property::published()->findOrFail($propertyId);
+
+        $data = [
+            'id' => $property->id,
+            'title' => $property->title,
+            'description' => $property->description,
+            'rental_type' => $property->rentalType->name,
+            'available_on' => $property->available_on,
+            'rent' => $property->rent,
+            'user' => [
+                'name' => $property->user->name,
+            ]
+        ];
+
+        return Inertia::render('Property/Show', [
+            'property' => $data
         ]);
     }
 }

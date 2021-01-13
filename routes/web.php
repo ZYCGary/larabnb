@@ -18,7 +18,8 @@ use Inertia\Inertia;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/places', [PropertyController::class, 'index'])->name('places.index');
+Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index');
+Route::get('/properties/{propertyId}', [PropertyController::class, 'show'])->name('properties.show');
 
 Route::middleware(['auth:sanctum', 'verified'])
     ->group(function () {
