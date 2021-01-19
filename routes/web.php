@@ -16,6 +16,10 @@ use Inertia\Inertia;
 |
 */
 
+if (App::environment('production')) {
+    URL::forceScheme('https');
+}
+
 Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index');
