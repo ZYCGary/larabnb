@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'home'])->name('home');
+
+Route::get('/properties', [PropertyController::class, 'index'])->name('properties.index');
+Route::get('/properties/{propertyId}', [PropertyController::class, 'show'])->name('properties.show');
+
+Route::middleware(['auth:sanctum', 'verified'])
+    ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return Inertia::render('Dashboard');
+        })->name('dashboard');
+    });
+

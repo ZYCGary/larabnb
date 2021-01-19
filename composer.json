@@ -12,8 +12,12 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "inertiajs/inertia-laravel": "^0.3.6",
         "laravel/framework": "^8.21",
-        "laravel/tinker": "^2.5"
+        "laravel/jetstream": "^2.0",
+        "laravel/sanctum": "^2.8",
+        "laravel/tinker": "^2.5",
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",
@@ -44,7 +48,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files":[
+            "tests/helpers.php"
+        ]
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
